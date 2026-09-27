@@ -1,0 +1,471 @@
+<title>Música y Primera Infancia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Nunito:wght@700;800&display=swap">
+<style>
+  :root{
+    --bg:#F2F6F4;
+    --bg-band:#2F4A45;
+    --bg-band-2:#28403B;
+    --surface:#FFFFFF;
+    --surface-alt:#E7EFEC;
+    --ink:#20302C;
+    --ink-soft:#5C6E69;
+    --ink-on-band:#F2F6F4;
+    --ink-on-band-soft:#B9CBC6;
+    --teal:#3E8C78;
+    --teal-strong:#2C6B5A;
+    --teal-soft:#DDEBE6;
+    --coral:#CB6E58;
+    --coral-soft:#F5E0D9;
+    --gold:#A97A2E;
+    --gold-soft:#EFE1C6;
+    --line:#D8E3DF;
+    --shadow:0 18px 40px -22px rgba(32,48,44,.35);
+    --chrome-bg:#FFFFFF;
+    --chrome-ink:#20302C;
+    --chrome-ink-soft:#5C6E69;
+    --chrome-line:#E4EAE8;
+    --chrome-accent:#2C6B5A;
+    --chrome-accent-soft:#DDEBE6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#141F1D;
+      --bg-band:#0F1917;
+      --bg-band-2:#0B1412;
+      --surface:#1C2926;
+      --surface-alt:#22322E;
+      --ink:#EAF2EF;
+      --ink-soft:#A6BAB4;
+      --ink-on-band:#EAF2EF;
+      --ink-on-band-soft:#9FB6AF;
+      --teal:#6FBBA4;
+      --teal-strong:#8AD1BA;
+      --teal-soft:#1E332D;
+      --coral:#E8967B;
+      --coral-soft:#332420;
+      --gold:#D8AD5F;
+      --gold-soft:#332B1A;
+      --line:#2A3C37;
+      --shadow:0 18px 40px -20px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#141F1D;
+    --bg-band:#0F1917;
+    --bg-band-2:#0B1412;
+    --surface:#1C2926;
+    --surface-alt:#22322E;
+    --ink:#EAF2EF;
+    --ink-soft:#A6BAB4;
+    --ink-on-band:#EAF2EF;
+    --ink-on-band-soft:#9FB6AF;
+    --teal:#6FBBA4;
+    --teal-strong:#8AD1BA;
+    --teal-soft:#1E332D;
+    --coral:#E8967B;
+    --coral-soft:#332420;
+    --gold:#D8AD5F;
+    --gold-soft:#332B1A;
+    --line:#2A3C37;
+    --shadow:0 18px 40px -20px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  h1,h2,h3{font-family:"Fraunces","Iowan Old Style",Georgia,serif;font-weight:600;margin:0;text-wrap:balance}
+  p{margin:0}
+  a{color:inherit}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  :focus-visible{outline:2.5px solid var(--teal-strong);outline-offset:3px}
+
+  .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+    background:color-mix(in srgb, var(--chrome-bg) 96%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--chrome-line);
+  }
+  .site-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px;min-height:56px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand img{height:34px;width:auto}
+  .brand-name{font-family:"Nunito","Figtree",sans-serif;font-weight:800;font-size:.98rem;line-height:1.1;color:var(--chrome-ink)}
+  .brand-name small{display:block;font-family:"Figtree",sans-serif;font-weight:500;font-size:.66rem;letter-spacing:.04em;color:var(--chrome-ink-soft);text-transform:uppercase}
+  nav.site-nav{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+  nav.site-nav a{
+    font-size:.82rem;font-weight:600;padding:7px 11px;border-radius:99px;
+    text-decoration:none;color:var(--chrome-ink-soft);white-space:nowrap;
+  }
+  nav.site-nav a:hover{background:var(--chrome-accent-soft);color:var(--chrome-accent)}
+
+  /* ---------- hero ---------- */
+  .hero{background:linear-gradient(175deg,var(--bg-band),var(--bg-band-2));color:var(--ink-on-band);padding-block:56px 64px}
+  .hero-inner{max-width:680px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;
+    letter-spacing:.07em;text-transform:uppercase;color:var(--ink-on-band-soft);margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--coral)}
+  .hero h1{font-size:clamp(1.9rem,4.6vw,2.9rem);line-height:1.12;color:var(--ink-on-band)}
+  .hero h1 em{font-style:italic;color:var(--teal-strong)}
+  .hero p.lead{margin-top:18px;font-size:1.02rem;line-height:1.6;color:var(--ink-on-band-soft);max-width:56ch}
+  .hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px}
+  .hero-stats div{display:flex;flex-direction:column}
+  .hero-stats b{font-family:"Fraunces",serif;font-size:1.5rem;font-weight:600;color:var(--ink-on-band)}
+  .hero-stats span{font-size:.74rem;color:var(--ink-on-band-soft);letter-spacing:.02em}
+  .hero-cta{
+    margin-top:34px;display:inline-flex;align-items:center;gap:8px;
+    background:var(--coral);color:#2A1A14;font-weight:700;font-size:.92rem;
+    padding:12px 20px;border-radius:99px;text-decoration:none;
+    box-shadow:0 12px 26px -10px rgba(203,110,88,.55);
+  }
+  .hero-cta:hover{filter:brightness(1.06)}
+
+  /* ---------- intro ---------- */
+  .intro{padding-block:44px 8px}
+  .intro p{max-width:66ch;font-size:1rem;line-height:1.65;color:var(--ink-soft)}
+  .intro p + p{margin-top:14px}
+  .intro strong{color:var(--ink);font-weight:600}
+
+  /* ---------- stage section ---------- */
+  .stage{padding-block:52px;border-top:1px solid var(--line)}
+  .stage-head{max-width:62ch;margin-bottom:30px}
+  .stage-num{
+    display:inline-flex;align-items:center;gap:10px;font-family:"Fraunces",serif;
+    font-weight:600;font-size:.82rem;letter-spacing:.03em;margin-bottom:10px;
+  }
+  .stage-num i{
+    display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+    border-radius:50%;font-style:normal;font-size:.78rem;font-weight:700;color:var(--surface);
+  }
+  .stage-range{font-size:.78rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;opacity:.75}
+  .stage-head h2{font-size:clamp(1.35rem,2.6vw,1.7rem);margin-top:6px}
+  .stage-head p{margin-top:12px;font-size:.97rem;line-height:1.6;color:var(--ink-soft)}
+
+  .stage.s1 .stage-num i{background:var(--teal)}
+  .stage.s2 .stage-num i{background:var(--coral)}
+  .stage.s3 .stage-num i{background:var(--gold)}
+  .stage.s1 .stage-num{color:var(--teal-strong)}
+  .stage.s2 .stage-num{color:var(--coral)}
+  .stage.s3 .stage-num{color:var(--gold)}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,320px));gap:22px;justify-content:center}
+
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    text-align:left;display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease;
+    text-decoration:none;color:var(--ink);
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .card-img{
+    position:relative;aspect-ratio:3/4;background:var(--surface-alt);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  .card-img img{max-width:100%;max-height:100%;object-fit:contain}
+  .card-badge{
+    position:absolute;top:10px;left:10px;background:rgba(20,31,29,.72);color:#fff;
+    font-size:.68rem;font-weight:700;padding:4px 9px;border-radius:99px;letter-spacing:.02em;
+  }
+  .card-body{padding:16px 17px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+  .card-body h3{font-size:1.02rem;line-height:1.28}
+  .card-body p{font-size:.85rem;line-height:1.5;color:var(--ink-soft);flex:1}
+  .card-link{
+    margin-top:6px;display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;
+  }
+  .stage.s1 .card-link{color:var(--teal-strong)}
+  .stage.s2 .card-link{color:var(--coral)}
+  .stage.s3 .card-link{color:var(--gold)}
+  .card-link svg{width:14px;height:14px;transition:transform .15s ease}
+  .card:hover .card-link svg{transform:translateX(3px)}
+
+  .play-badge{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(0deg,rgba(15,25,23,.35),rgba(15,25,23,.05));
+  }
+  .play-badge span{
+    width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px -6px rgba(0,0,0,.4);
+  }
+  .play-badge svg{width:18px;height:18px;fill:var(--coral);margin-left:2px}
+
+  /* ---------- about / footer ---------- */
+  .about{background:var(--surface-alt);border-top:1px solid var(--line);padding-block:46px}
+  .about .wrap{max-width:760px}
+  .about h2{font-size:1.25rem;margin-bottom:14px}
+  .about p{font-size:.95rem;line-height:1.65;color:var(--ink-soft)}
+  .about p+p{margin-top:10px}
+
+  footer.site{background:var(--chrome-bg);color:var(--chrome-ink-soft);padding-block:38px;border-top:1px solid var(--chrome-line)}
+  .foot-inner{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+  .foot-brand{display:flex;align-items:center;gap:10px}
+  .foot-brand img{height:30px}
+  .foot-brand span{font-family:"Nunito","Figtree",sans-serif;font-weight:800;color:var(--chrome-ink);font-size:.92rem}
+  .foot-credit{font-size:.78rem;line-height:1.6;max-width:44ch;color:var(--chrome-ink-soft)}
+  .foot-note{margin-top:18px;font-size:.72rem;color:var(--chrome-ink-soft);opacity:.85;border-top:1px solid var(--chrome-line);padding-top:16px}
+
+  /* ---------- lightbox ---------- */
+  .lightbox{
+    position:fixed;inset:0;z-index:100;background:rgba(10,16,15,.92);
+    display:flex;align-items:center;justify-content:center;padding:min(6vh,56px) 16px;
+  }
+  .lightbox figure{margin:0;max-width:min(880px,94vw);max-height:100%;display:flex;flex-direction:column;gap:14px;align-items:center}
+  .lightbox img{max-height:78vh;max-width:100%;object-fit:contain;border-radius:6px;background:#fff}
+  .lightbox figcaption{color:#F2F6F4;text-align:center;max-width:64ch}
+  .lightbox figcaption h3{font-size:1rem;color:#fff;font-family:"Fraunces",serif;font-weight:600}
+  .lightbox figcaption p{font-size:.82rem;color:#B9CBC6;margin-top:5px}
+  .lb-close,.lb-prev,.lb-next{
+    position:fixed;background:rgba(255,255,255,.1);color:#fff;width:42px;height:42px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.2)}
+  .lb-close{top:max(18px,env(safe-area-inset-top,0px));right:18px}
+  .lb-prev{left:18px;top:50%;transform:translateY(-50%)}
+  .lb-next{right:18px;top:50%;transform:translateY(-50%)}
+  .lb-close svg,.lb-prev svg,.lb-next svg{width:18px;height:18px}
+
+  @media (max-width:640px){
+    .lb-prev{left:8px}
+    .lb-next{right:8px}
+    .hero-stats{gap:20px}
+    .site-inner{flex-wrap:wrap}
+    nav.site-nav{justify-content:flex-start}
+  }
+</style>
+
+<header class="site" id="top">
+  <div class="wrap site-inner">
+    <a class="brand" href="#top">
+      <img src="img/logo-icon.png" alt="Logotipo Te Hablo, Me Escuchas">
+      <span class="brand-name">Te Hablo, Me Escuchas<small>Divulgación · Proyecto IDS</small></span>
+    </a>
+    <nav class="site-nav">
+      <a href="#etapa-1">0–6 meses</a>
+      <a href="#etapa-2">6–24 meses</a>
+      <a href="#etapa-3">2–7 años</a>
+      <a href="#sobre">El proyecto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Semillero Música y Psicología · 2026-1</p>
+    <h1>Música y lenguaje en la <em>primera infancia</em></h1>
+    <p class="lead">Ocho infografías creadas por estudiantes del semillero aliado, que traducen la evidencia sobre musicalidad y desarrollo del lenguaje en materiales claros para madres, padres y cuidadores.</p>
+    <div class="hero-stats">
+      <div><b>8</b><span>Infografías</span></div>
+      <div><b>3</b><span>Etapas del desarrollo</span></div>
+      <div><b>1</b><span>Video</span></div>
+    </div>
+    <a class="hero-cta" href="#etapa-1">
+      Explorar por edades
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <p>Este material forma parte de <strong>Te Hablo, Me Escuchas</strong>, una línea de investigación sobre habla dirigida a bebés (<em>infant-directed speech</em>, IDS). Las infografías están organizadas por rango de edad: toca cualquier tarjeta para verla completa.</p>
+  </div>
+</section>
+
+<main>
+  <section class="stage s1 wrap" id="etapa-1">
+    <div class="stage-head">
+      <p class="stage-num"><i>1</i> <span class="stage-range">0 a 6 meses</span></p>
+      <h2>Los primeros meses: la voz como vínculo</h2>
+      <p>Desde el nacimiento, el bebé responde al ritmo, la melodía y el tono de la voz de quienes lo cuidan. Cantarle, incluso sin técnica ni afinación perfecta, ayuda a regular sus emociones, crear rutinas predecibles y sentar las bases afectivas del lenguaje que vendrá.</p>
+    </div>
+    <div class="card-grid" data-stage="s1">
+      <!-- cards injected by JS from DATA -->
+    </div>
+  </section>
+
+  <section class="stage s2 wrap" id="etapa-2">
+    <div class="stage-head">
+      <p class="stage-num"><i>2</i> <span class="stage-range">6 a 24 meses</span></p>
+      <h2>Ritmo, balbuceo y las primeras palabras</h2>
+      <p>En esta etapa, musicalidad y lenguaje se desarrollan de la mano: ambos dependen del ritmo, la entonación y la memoria auditiva. Cantar canciones repetitivas y jugar con el pulso corporal fortalece la atención auditiva y prepara el terreno para el vocabulario y la gramática.</p>
+    </div>
+    <div class="card-grid" data-stage="s2"></div>
+  </section>
+
+  <section class="stage s3 wrap" id="etapa-3">
+    <div class="stage-head">
+      <p class="stage-num"><i>3</i> <span class="stage-range">2 a 7 años</span></p>
+      <h2>Música, juego y fantasía</h2>
+      <p>Con el lenguaje ya instalado, los niños usan la música y el juego simbólico para dar forma a su mundo emocional. Inventar canciones, narrar cuentos musicales y jugar con instrumentos sencillos estimula la memoria, la conciencia fonológica y la creatividad.</p>
+    </div>
+    <div class="card-grid" data-stage="s3"></div>
+  </section>
+</main>
+
+<section class="about" id="sobre">
+  <div class="wrap">
+    <h2>Sobre este material</h2>
+    <p>Las infografías fueron elaboradas por estudiantes del <strong>Semillero de Investigación en Música y Psicología (2026-1)</strong>, en colaboración con el proyecto <strong>Te Hablo, Me Escuchas</strong>. Cada una resume, de forma accesible, ideas que provienen de la literatura sobre desarrollo infantil y comunicación temprana.</p>
+    <p>Esta página es una vista previa: reúne los productos del semillero mientras se desarrolla el sitio bilingüe completo del proyecto.</p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <img src="img/logo-icon.png" alt="">
+        <span>Te Hablo, Me Escuchas</span>
+      </div>
+      <p class="foot-credit">Infografías: Semillero de Investigación en Música y Psicología, 2026-1. Proyecto sobre habla dirigida a bebés dirigido por Leongómez et al.</p>
+    </div>
+    <p class="foot-note">Vista previa interna · el sitio bilingüe completo del proyecto está en desarrollo.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Cerrar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button class="lb-prev" id="lbPrev" aria-label="Anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button class="lb-next" id="lbNext" aria-label="Siguiente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption>
+      <h3 id="lbTitle"></h3>
+      <p id="lbText"></p>
+    </figcaption>
+  </figure>
+</div>
+
+<script>
+(function(){
+  var DATA = {
+    s1: [
+      {full:"img/beneficios-full.jpg", thumb:"img/beneficios-thumb.jpg",
+       title:"Un vínculo melódico", teaser:"Cómo el canto en pareja fortalece el vínculo afectivo y el desarrollo del lenguaje."},
+      {full:"img/bebes-full.jpg", thumb:"img/bebes-thumb.jpg",
+       title:"Guía para padres", teaser:"Rutinas sonoras para la calma, el sueño y la regulación emocional del bebé."}
+    ],
+    s2: [
+      {full:"img/musicalidad-1-full.jpg", thumb:"img/musicalidad-1-thumb.jpg",
+       title:"Musicalidad y lenguaje", badge:"Página 1 de 2", teaser:"Qué es la musicalidad y cómo comparte procesos cerebrales con el lenguaje."},
+      {full:"img/musicalidad-2-full.jpg", thumb:"img/musicalidad-2-thumb.jpg",
+       title:"Musicalidad y lenguaje", badge:"Página 2 de 2", teaser:"Cómo evolucionan la musicalidad y el lenguaje mes a mes, de 6 a 36+ meses."},
+      {full:"img/poder-musica-full.jpg", thumb:"img/poder-musica-thumb.jpg",
+       title:"El poder de la música", teaser:"Fundamentos de la musicalidad y formas sencillas de estimular a tu bebé cada día."}
+    ],
+    s3: [
+      {full:"img/cuento-musical-full.jpg", thumb:"img/cuento-musical-thumb.jpg",
+       title:"¡Creemos un cuento musical!", teaser:"Una actividad para construir historias sonoras junto a tu hijo o hija."},
+      {full:"img/pequenos-musicos-full.jpg", thumb:"img/pequenos-musicos-thumb.jpg",
+       title:"Pequeños músicos", teaser:"Tres juegos para estimular el lenguaje, la memoria y la lectoescritura."},
+      {full:"img/armonia-crecimiento-full.jpg", thumb:"img/armonia-crecimiento-thumb.jpg",
+       title:"Armonía en el crecimiento", teaser:"Hitos del lenguaje y la música, y cómo se predicen mutuamente."}
+    ]
+  };
+
+  var order = [];
+  var grids = document.querySelectorAll(".card-grid");
+
+  function cardHTML(item, arrowSvg){
+    return (
+      '<div class="card-img">' +
+        (item.badge ? '<span class="card-badge">'+item.badge+'</span>' : '') +
+        '<img src="'+item.thumb+'" alt="Miniatura de la infografía: '+item.title+'" loading="lazy">' +
+      '</div>' +
+      '<div class="card-body">' +
+        '<h3>'+item.title+'</h3>' +
+        '<p>'+item.teaser+'</p>' +
+        '<span class="card-link">Ver completa ' + arrowSvg + '</span>' +
+      '</div>'
+    );
+  }
+
+  var arrowSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  grids.forEach(function(grid){
+    var stage = grid.getAttribute("data-stage");
+    DATA[stage].forEach(function(item){
+      var idx = order.length;
+      order.push(item);
+      var btn = document.createElement("button");
+      btn.className = "card";
+      btn.innerHTML = cardHTML(item, arrowSvg);
+      btn.addEventListener("click", function(){ openLightbox(idx); });
+      grid.appendChild(btn);
+    });
+  });
+
+  // video card, appended to etapa 2 grid, opens externally instead of lightbox
+  var videoGrid = document.querySelector('.card-grid[data-stage="s2"]');
+  var videoCard = document.createElement("a");
+  videoCard.className = "card";
+  videoCard.href = "https://youtu.be/yghQUKI3INs";
+  videoCard.target = "_blank";
+  videoCard.rel = "noopener";
+  videoCard.innerHTML =
+    '<div class="card-img">' +
+      '<img src="img/video-thumb.jpg" alt="Miniatura del video: música y lenguaje, 6 a 24 meses" loading="lazy">' +
+      '<span class="play-badge"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></span>' +
+    '</div>' +
+    '<div class="card-body">' +
+      '<h3>Música y lenguaje, 6 a 24 meses</h3>' +
+      '<p>Un video del semillero sobre cómo la música acompaña el desarrollo temprano del lenguaje.</p>' +
+      '<span class="card-link">Ver en YouTube ' + arrowSvg + '</span>' +
+    '</div>';
+  videoGrid.appendChild(videoCard);
+
+  // ---------- lightbox ----------
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lbImg");
+  var lbTitle = document.getElementById("lbTitle");
+  var lbText = document.getElementById("lbText");
+  var current = 0;
+
+  function openLightbox(i){
+    current = i;
+    render();
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox(){
+    lb.hidden = true;
+    document.body.style.overflow = "";
+  }
+  function render(){
+    var item = order[current];
+    lbImg.src = item.full;
+    lbImg.alt = "Infografía: " + item.title;
+    lbTitle.textContent = item.title + (item.badge ? " — " + item.badge : "");
+    lbText.textContent = item.teaser;
+  }
+  function step(dir){
+    current = (current + dir + order.length) % order.length;
+    render();
+  }
+
+  document.getElementById("lbClose").addEventListener("click", closeLightbox);
+  document.getElementById("lbPrev").addEventListener("click", function(){ step(-1); });
+  document.getElementById("lbNext").addEventListener("click", function(){ step(1); });
+  lb.addEventListener("click", function(e){ if(e.target === lb) closeLightbox(); });
+  document.addEventListener("keydown", function(e){
+    if(lb.hidden) return;
+    if(e.key === "Escape") closeLightbox();
+    if(e.key === "ArrowLeft") step(-1);
+    if(e.key === "ArrowRight") step(1);
+  });
+})();
+</script>
